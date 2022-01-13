@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Coding/Code/Android Studio/AppParent/app/src/main/res/drawable/corners.xml" value="0.24351851851851852" />
+        <entry key="..\:/Coding/Code/Android Studio/AppParent/app/src/main/res/drawable/ic_main.xml" value="0.24351851851851852" />
+        <entry key="..\:/Coding/Code/Android Studio/AppParent/app/src/main/res/drawable/item.xml" value="0.24351851851851852" />
+        <entry key="..\:/Coding/Code/Android Studio/AppParent/app/src/main/res/drawable/shawdow.xml" value="0.24351851851851852" />
+        <entry key="..\:/Coding/Code/Android Studio/AppParent/app/src/main/res/layout/activity_add.xml" value="0.26766304347826086" />
+        <entry key="..\:/Coding/Code/Android Studio/AppParent/app/src/main/res/layout/activity_add_ltactivity.xml" value="0.259375" />
+        <entry key="..\:/Coding/Code/Android Studio/AppParent/app/src/main/res/layout/activity_capture.xml" value="0.259375" />
+        <entry key="..\:/Coding/Code/Android Studio/AppParent/app/src/main/res/layout/activity_edit_schedule.xml" value="0.26766304347826086" />
+        <entry key="..\:/Coding/Code/Android Studio/AppParent/app/src/main/res/layout/activity_keylogger.xml" value="0.259375" />
+        <entry key="..\:/Coding/Code/Android Studio/AppParent/app/src/main/res/layout/activity_login.xml" value="0.12613981762917933" />
+        <entry key="..\:/Coding/Code/Android Studio/AppParent/app/src/main/res/layout/activity_main.xml" value="0.259375" />
+        <entry key="..\:/Coding/Code/Android Studio/AppParent/app/src/main/res/layout/activity_main_screen.xml" value="0.2" />
+        <entry key="..\:/Coding/Code/Android Studio/AppParent/app/src/main/res/layout/item_schedule.xml" value="0.264" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="15" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
