@@ -183,8 +183,10 @@ public class MainScreenActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<DriveItem> call, Response<DriveItem> response) {
                 DriveItem driveItem = response.body();
-                state_url = driveItem.getDownUrl();
-                new StateAsyncTask().execute(state_url);
+                if(driveItem !=null) {
+                    state_url = driveItem.getDownUrl();
+                    new StateAsyncTask().execute(state_url);
+                }
             }
 
             @Override
@@ -533,7 +535,7 @@ public class MainScreenActivity extends AppCompatActivity {
             ApiCallGraph.apiCallGraph.writeOneDrive(accessToken, body, "os/default-schedule.txt").enqueue(new Callback<ResponseBody>() {
                 @Override
                 public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                    if(response.code()==200) {
+                    if(response.code()==200 && response.code()==201) {
                         Ultility.printDisplay(getApplicationContext(), "Thêm lịch thành công");
                         tabScheduleEvents();
                     }
@@ -600,7 +602,7 @@ public class MainScreenActivity extends AppCompatActivity {
             ApiCallGraph.apiCallGraph.writeOneDrive(accessToken, body, "os/default-schedule.txt").enqueue(new Callback<ResponseBody>() {
                 @Override
                 public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                    if(response.code()==200) {
+                    if(response.code()==200 && response.code()==201) {
                         Ultility.printDisplay(getApplicationContext(), "Thêm lịch thành công");
                         tabScheduleEvents();
                     }
@@ -670,7 +672,7 @@ public class MainScreenActivity extends AppCompatActivity {
             ApiCallGraph.apiCallGraph.writeOneDrive(accessToken, body, "os/management/"+date+"/schedule.txt").enqueue(new Callback<ResponseBody>() {
                 @Override
                 public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                    if(response.code()==200) {
+                    if(response.code()==200 && response.code()==200) {
                         Ultility.printDisplay(getApplicationContext(), "Thêm lịch thành công");
                         tabLTEvents();
                     }else

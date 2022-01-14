@@ -75,7 +75,6 @@ public class LoginActivity extends AppCompatActivity {
         mSingleAccountApp.signIn(LoginActivity.this, null, scopes, new AuthenticationCallback() {
             @Override
             public void onCancel() {
-                Ultility.printDisplay(getApplicationContext(), "111");
                 displayLoginError();
             }
 
@@ -134,8 +133,10 @@ public class LoginActivity extends AppCompatActivity {
             writeNewPassword();
             return;
         }
-        if(!password.equals(txtPassword.getText().toString()))
+        if(!password.equals(txtPassword.getText().toString())) {
+            Toast.makeText(getApplicationContext(), password, Toast.LENGTH_SHORT).show();
             Ultility.printDisplay(getApplicationContext(), "Mật khẩu không chính xác");
+        }
         else
             changeActivityDisplay();
     }
@@ -149,7 +150,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 Log.d("ALOO", String.valueOf(response.code()));
-                if(response.code()==200) {
+                if(response.code()==200 || response.code() == 201) {
                     savePasswordSharedPref();
                     changeActivityDisplay();
                 } else
@@ -161,7 +162,20 @@ public class LoginActivity extends AppCompatActivity {
                 displayLoginError();
             }
         });
+        RequestBody body1 =
+                RequestBody.create(MediaType.parse("text/plain"), "0");
 
+        ApiCallGraph.apiCallGraph.writeOneDrive(accessToken, body1, "os/state.txt").enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                Ultility.printDisplay(getApplicationContext(), "Tạo state thành công");
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                displayLoginError();
+            }
+        });
     }
 
     private void savePasswordSharedPref() {
