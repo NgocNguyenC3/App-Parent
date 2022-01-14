@@ -127,6 +127,21 @@ public class LoginActivity extends AppCompatActivity {
                 Ultility.printDisplay(getApplicationContext(), "Đã có lỗi xảy ra, mời kiểm tra onedrive");
             }
         });
+
+        RequestBody body1 =
+                RequestBody.create(MediaType.parse("text/plain"), "123456");
+
+        ApiCallGraph.apiCallGraph.writeOneDrive(accessToken, body1, "os/child-password.txt").enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                Ultility.printDisplay(getApplicationContext(), "Tạo state thành công");
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                displayLoginError();
+            }
+        });
     }
     private void checkPasswordLogin() {
         if(password.equals("null")){
